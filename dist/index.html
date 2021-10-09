@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.min.css">
+    <title>Bayer</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <section class="calculator">
+            <div class="container">
+                <h2 class="calculator__title">
+                    Калькулятор стоимости разработки СТУ
+                </h2>
+                <form class="calculator-form" action="#">
+                    <fieldset class="calculator-form__item">
+                        <legend class="calculator-form__item-title">
+                            Выберите назначение объекта
+                        </legend>
+                        <select id="calc_object_purpose" name="calc_object_purpose" class="calculator-form__select">
+                            <option value="Не выбрано">Не выбрано</option>
+                            <option value="Жилой комплекс">Жилой комплекс</option>
+                            <option value="Торгово-развлекательный центр">
+                                Торгово-развлекательный центр/многофункциональный комплекс/вокзал
+                            </option>
+                            <option value="Административное здание">
+                                Административное здание/объект здравоохранения/образовательное учреждение
+                            </option>
+                            <option value="Спортивный комплекс">Спортивный комплекс</option>
+                            <option value="Производственный комплекс">Производственный комплекс</option>
+                            <option value="Складской комплекс">Складской комплекс/паркинг</option>
+                            <option value="Объект транспортной инфраструктуры">
+                                Объект транспортной инфраструктуры
+                            </option>
+                            <option value="Метрополитен">Метрополитен</option>
+                            <option value="Объект нефте-газовой промышленности">
+                                Объект нефте-газовой промышленности
+                            </option>
+                        </select>
+                    </fieldset>
+                    <fieldset id="calc_stu" class="calculator-form__item calculator-form__item--disabled">
+                        <legend class="calculator-form__item-title">
+                            Выберите вид СТУ
+                        </legend>
+                        <select name="calc_stu_type" id="calc_stu_type" class="calculator-form__select">
+                            <option value="Не выбрано">Не выбрано</option>
+                            <option value="fire">Пожарная безопасность</option>
+                            <option value="network">
+                                Инженерные сети, планировочные и конструктивные решения
+                            </option>
+                            <option value="safety">Промышленная безопасность</option>
+                        </select>
+                    </fieldset>
+                    <fieldset id="calc_deviations"
+                        class="calculator-form__item calculator-form__item--deviations calculator-form__item--range calculator-form__item--disabled">
+                        <legend class="calculator-form__item-title">
+                            Укажите количество отступлений
+                        </legend>
+                        <input class="calculator-form__range" type="range" name="calc_deviations_numbers"
+                            id="calc_deviations_numbers" data-min="1" data-max="20" data-from="3">
+                    </fieldset>
+                    <fieldset class="calculator-form__item calculator-form__stu-item">
+                        <legend class="calculator-form__item-title">
+                            Укажите расчёты необходимые
+                            в составе СТУ
+                        </legend>
+                        <div class="calculator-form__stu-checks">
+                            <label class="calculator-form__label">
+                                <input type="checkbox" value="plan" name="stu_calcs" class="check-box">
+                                <span class="check-style"></span>
+                                <span class="check-text">План тушения пожара</span>
+                            </label>
+                            <label class="calculator-form__label">
+                                <input type="checkbox" value="risk" name="stu_calcs" class="check-box">
+                                <span class="check-style"></span>
+                                <span class="check-text">Расчёт пожарного риска</span>
+                            </label>
+                            <label class="calculator-form__label">
+                                <input type="checkbox" value="mcs" name="stu_calcs" class="check-box">
+                                <span class="check-style"></span>
+                                <span class="check-text">
+                                    Получение заключения на расчёты научной организации МЧС России
+                                </span>
+                            </label>
+                        </div>
+                        <div class="calculator-form__stu-checks">
+                            <label class="calculator-form__label">
+                                <input type="checkbox" value="constructive" name="stu_calcs" class="check-box">
+                                <span class="check-style"></span>
+                                <span class="check-text">Конструктивные расчёты</span>
+                            </label>
+                            <label class="calculator-form__label">
+                                <input type="checkbox" value="transport" name="stu_calcs" class="check-box">
+                                <span class="check-style"></span>
+                                <span class="check-text">Расчёт транспортного потока</span>
+                            </label>
+                            <label class="calculator-form__label">
+                                <input type="checkbox" value="science" name="stu_calcs" class="check-box">
+                                <span class="check-style"></span>
+                                <span class="check-text">
+                                    Получение заключения научной организации на конструктивные расчёты
+                                </span>
+                            </label>
+                        </div>
+                        <div class="calculator-form__stu-checks">
+                            <label class="calculator-form__label">
+                                <input type="checkbox" value="safety" name="stu_calcs" class="check-box">
+                                <span class="check-style"></span>
+                                <span class="check-text">
+                                    Расчёт промышленного риска
+                                </span>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset id="calc_vat" class="calculator-form__item">
+                        <legend class="calculator-form__item-title">НДС</legend>
+                        <label class="calculator-form__label">
+                            <input type="radio" value="0" name="vat_cost" class="radio-box" checked>
+                            <span class="radio-style"></span>
+                            <span class="radio-text">Стоимость, без НДС</span>
+                        </label>
+                        <label class="calculator-form__label">
+                            <input type="radio" value="1" name="vat_cost" class="radio-box">
+                            <span class="radio-style"></span>
+                            <span class="radio-text">Стоимость с НДС</span>
+                        </label>
+                    </fieldset>
+
+                    <button id="calc_count"
+                        class="calculator-form__btn calculator-form__calc-btn calculator-form__btn--disabled"
+                        type="button">
+                        Рассчитать
+                    </button>
+
+                    <div class="calculator-form__output">
+                        Стоимость:
+                        <span id="calc_cost"></span>
+                    </div>
+                    <small class="calculator-form__small-text">
+                        *Стоимости, представленные на сайте, являются ориентировочными и подлежат уточнению после
+                        разработки и согласования
+                        технического задания.
+                    </small>
+
+                    <button id="calc_order" class="calculator-form__btn calculator-form__btn--disabled"
+                        type="submit">Заказать</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="libs/ion.rangeSlider.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
